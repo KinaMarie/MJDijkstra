@@ -38,7 +38,7 @@ MJDijkstraSolution Dijkstra(NSDictionary *graph, id start, id end)
         NSDictionary *neighbours = graph[vtx1];
         for (id vtx2 in neighbours)
         {
-            int vwLength = [dist[vtx1] integerValue] + [neighbours[vtx2] integerValue];
+            NSInteger vwLength = [dist[vtx1] integerValue] + [neighbours[vtx2] integerValue];
             
             if (dist[vtx2] != nil)
             {
@@ -50,7 +50,7 @@ MJDijkstraSolution Dijkstra(NSDictionary *graph, id start, id end)
             }
             else if (prio[vtx2] == nil || vwLength < [prio[vtx2] integerValue])
             {
-                prio[vtx2] = [NSNumber numberWithInt:vwLength];
+                prio[vtx2] = [NSNumber numberWithInteger:vwLength];
                 pred[vtx2] = vtx1;
             }
         }
@@ -79,7 +79,7 @@ NSArray *shortestPath(NSDictionary *graph, id start, id end)
         e = solution.predecessors[e];
     }
     
-    int l = [path count] - 1;
+    NSUInteger l = [path count] - 1;
     for (int i = 0; i < l-i; ++i)
         [path exchangeObjectAtIndex:i withObjectAtIndex:l-i];
 
