@@ -39,6 +39,7 @@
 		07186DBB1BA0A8FD00773E1D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		07186DBC1BA0A8FD00773E1D /* MJDijkstra-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MJDijkstra-Info.plist"; sourceTree = "<group>"; };
 		07186DBD1BA0A8FD00773E1D /* MJDijkstra-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MJDijkstra-Prefix.pch"; sourceTree = "<group>"; };
+		07186DC01BA0AA2F00773E1D /* MJDijkstra.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = MJDijkstra.podspec; sourceTree = SOURCE_ROOT; };
 		07FD091B1BA0A2E2005C38DD /* MJDijkstraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MJDijkstraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		07FD091E1BA0A2E2005C38DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07FD091F1BA0A2E2005C38DD /* MJDijkstraTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJDijkstraTests.m; sourceTree = "<group>"; };
@@ -139,6 +140,7 @@
 		2A2B772416D3577E00E7DA90 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				07186DC01BA0AA2F00773E1D /* MJDijkstra.podspec */,
 				07186DBB1BA0A8FD00773E1D /* main.m */,
 				07186DBC1BA0A8FD00773E1D /* MJDijkstra-Info.plist */,
 				07186DBD1BA0A8FD00773E1D /* MJDijkstra-Prefix.pch */,
@@ -418,6 +420,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MJDijkstra/MJDijkstra-Prefix.pch";
 				INFOPLIST_FILE = "MJDijkstra/MJDijkstra-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = MJDijkstra;
 				WRAPPER_EXTENSION = app;
 			};
@@ -430,6 +433,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MJDijkstra/MJDijkstra-Prefix.pch";
 				INFOPLIST_FILE = "MJDijkstra/MJDijkstra-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = MJDijkstra;
 				WRAPPER_EXTENSION = app;
 			};

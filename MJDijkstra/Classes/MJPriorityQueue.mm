@@ -11,7 +11,7 @@
 //
 
 #import "MJPriorityQueue.h"
-#include <queue>
+#import <queue>
 
 struct MJLessThan
 {

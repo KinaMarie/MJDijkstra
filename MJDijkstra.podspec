@@ -2,8 +2,12 @@
 Pod::Spec.new do |s|
 
     s.name         = "MJDijkstra"
-    s.version      = "0.0.1"
+    s.version      = "1.0.0"
     s.summary      = "An implementation of Dijkstra algorithm in Objective C"
+    
+    s.ios.deployment_target = "6.0"
+    s.osx.deployment_target = "10.8"
+
     s.description  = <<-DESC
 
 Dijkstra algorithm finds all shortest paths from a vertex to each other vertex in a graph.
@@ -23,17 +27,29 @@ The project incliudes unit tests.
 DESC
 
     s.homepage        = "https://github.com/SSU-CS-Department/MJDijkstra"
-    s.license         = "MIT"
+    s.license         = {
+        :type => 'MIT',
+        :text => <<-LICENSE
+        MJDijkstra
+        
+        Author: Dmitri Kozlov
+        
+        This is free and unencumbered software released into the public domain.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+        LICENSE
+    }
+    
     s.author          = "Dmitri Kozlov"
     s.source       = { 
-        :git => "https://github.com/SSU-CS-Department/MJDijkstra.git" 
+        :git => "https://github.com/SSU-CS-Department/MJDijkstra.git",
+        :tag => s.version
     }
 
     s.source_files  = "Classes", "Classes/**/*.{h,m}"
+    
+    s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => 'objective-c++' }
 
     s.requires_arc = true
-
-    # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-    # s.dependency "JSONKit", "~> 1.4"
 
 end
