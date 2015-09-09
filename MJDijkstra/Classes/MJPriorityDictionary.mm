@@ -52,12 +52,12 @@ bool val_compare_more(KVPair const &lhs, KVPair const &rhs)
 
 +(MJPriorityDictionary*)dictionary
 {
-    return [[[MJPriorityDictionary alloc] initAscending:YES] autorelease];
+    return [[MJPriorityDictionary alloc] initAscending:YES];
 }
 
 +(MJPriorityDictionary*)dictionaryAscending:(BOOL)asc
 {
-    return [[[MJPriorityDictionary alloc] initAscending:asc] autorelease];
+    return [[MJPriorityDictionary alloc] initAscending:asc];
 }
 
 -(id)initAscending:(BOOL)asc
@@ -71,7 +71,6 @@ bool val_compare_more(KVPair const &lhs, KVPair const &rhs)
 -(void)dealloc
 {
     [self clear];
-    [super dealloc];
 }
 
 - (void)buildheap

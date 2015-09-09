@@ -1,29 +1,30 @@
 //
-//  dijkstraLogicTests.m
-//  dijkstraLogicTests
+//  MJDijkstraTests.m
+//  MJDijkstraTests
 //
-//  Created by Dmitri Kozlov on 19/02/13.
-//  Copyright (c) 2013 Dmitri Kozlov. All rights reserved.
+//  Created by Eric Amorde on 9/10/15.
+//  Copyright (c) 2015 Dmitri Kozlov. All rights reserved.
 //
 
-#import "dijkstraLogicTests.h"
+#import <UIKit/UIKit.h>
+#import <XCTest/XCTest.h>
 #import "MJPriorityQueue.h"
 #import "MJPriorityDictionary.h"
 #import "MJDijkstra.h"
 
-@implementation dijkstraLogicTests
+@interface MJDijkstraTests : XCTestCase
+
+@end
+
+@implementation MJDijkstraTests
 
 - (void)setUp
 {
     [super setUp];
-    
-    // Set-up code here.
 }
 
 - (void)tearDown
 {
-    // Tear-down code here.
-    
     [super tearDown];
 }
 
@@ -32,21 +33,21 @@
 - (void)testPriorityQueueEmpty
 {
     MJPriorityQueue *q = [MJPriorityQueue queue];
-    STAssertTrue([q empty], @"Queue should be empty");
+    XCTAssert([q empty], @"Queue should be empty");
 }
 
 - (void)testPriorityQueueSize
 {
     MJPriorityQueue *q = [MJPriorityQueue queue];
     [q push:@"string"];
-    STAssertTrue([q size] == 1, @"Queue size should be 1");
+    XCTAssert([q size] == 1, @"Queue size should be 1");
 }
 
 - (void)testPriorityQueuePush
 {
     MJPriorityQueue *q = [MJPriorityQueue queue];
     [q push:@"string"];
-    STAssertTrue([[q top] isEqual:@"string"], @"Queue top is wrong");
+    XCTAssert([[q top] isEqual:@"string"], @"Queue top is wrong");
 }
 
 - (void)testPriorityQueuePop
@@ -54,7 +55,7 @@
     MJPriorityQueue *q = [MJPriorityQueue queue];
     [q push:@"string"];
     [q pop];
-    STAssertTrue([q size] == 0, @"Queue size should be 0");
+    XCTAssert([q size] == 0, @"Queue size should be 0");
 }
 
 - (void)testPriorityQueueCleanup
@@ -62,7 +63,7 @@
     MJPriorityQueue *q = [MJPriorityQueue queue];
     [q push:@"string"];
     [q pop];
-    STAssertTrue([q empty], @"Queue should be empty");
+    XCTAssert([q empty], @"Queue should be empty");
 }
 
 - (void)testPriorityQueueSort
@@ -75,11 +76,11 @@
     [q push:s3];
     [q push:s2];
     
-    STAssertTrue([[q top] isEqual:s3], @"Queue sorting failed");
+    XCTAssert([[q top] isEqual:s3], @"Queue sorting failed");
     [q pop];
-    STAssertTrue([[q top] isEqual:s2], @"Queue sorting failed");
+    XCTAssert([[q top] isEqual:s2], @"Queue sorting failed");
     [q pop];
-    STAssertTrue([[q top] isEqual:s1], @"Queue sorting failed");
+    XCTAssert([[q top] isEqual:s1], @"Queue sorting failed");
     [q pop];
 }
 
@@ -92,28 +93,28 @@
 - (void)testPriorityDictionaryEmpty
 {
     MJPriorityDictionary *q = [MJPriorityDictionary dictionary];
-    STAssertTrue([q empty], @"Dictionary should be empty");
+    XCTAssert([q empty], @"Dictionary should be empty");
 }
 
 - (void)testPriorityDictionarySize
 {
     MJPriorityDictionary *q = [MJPriorityDictionary dictionary];
     [q setObject:@1 forKey:@"key"];
-    STAssertTrue([q size] == 1, @"Dictionary size should be 1");
+    XCTAssert([q size] == 1, @"Dictionary size should be 1");
 }
 
 - (void)testPriorityDictionaryPush
 {
     MJPriorityDictionary *q = [MJPriorityDictionary dictionary];
     [q setObject:@1 forKey:@"key"];
-    STAssertTrue([[q top] isEqual:@"key"], @"Dictionary top is wrong");
+    XCTAssert([[q top] isEqual:@"key"], @"Dictionary top is wrong");
 }
 
 - (void)testPriorityDictionarySubscripting
 {
     MJPriorityDictionary *q = [MJPriorityDictionary dictionary];
     q[@"key"] = @1;
-    STAssertTrue([[q top] isEqual:@"key"], @"Dictionary top is wrong");
+    XCTAssert([[q top] isEqual:@"key"], @"Dictionary top is wrong");
 }
 
 - (void)testPriorityDictionaryPopSize
@@ -121,7 +122,7 @@
     MJPriorityDictionary *q = [MJPriorityDictionary dictionary];
     q[@"key"] = @1;
     [q pop];
-    STAssertTrue([q size] == 0, @"Dictionary size should be 0");
+    XCTAssert([q size] == 0, @"Dictionary size should be 0");
 }
 
 - (void)testPriorityDictionaryPopEmpty
@@ -129,7 +130,7 @@
     MJPriorityDictionary *q = [MJPriorityDictionary dictionary];
     q[@"key"] = @1;
     [q pop];
-    STAssertTrue([q empty], @"Dictionary should be empty");
+    XCTAssert([q empty], @"Dictionary should be empty");
 }
 
 - (void)testPriorityDictionaryClear
@@ -138,7 +139,7 @@
     q[@"key1"] = @1;
     q[@"key2"] = @1;
     [q clear];
-    STAssertTrue([q empty], @"Dictionary should be empty");
+    XCTAssert([q empty], @"Dictionary should be empty");
 }
 
 - (void)testPriorityDictionarySort1
@@ -151,11 +152,11 @@
     q[k2] = @2;
     q[k3] = @3;
     
-    STAssertTrue([[q top] isEqual:k3], @"Dictionary sorting failed");
+    XCTAssert([[q top] isEqual:k3], @"Dictionary sorting failed");
     [q pop];
-    STAssertTrue([[q top] isEqual:k2], @"Dictionary sorting failed");
+    XCTAssert([[q top] isEqual:k2], @"Dictionary sorting failed");
     [q pop];
-    STAssertTrue([[q top] isEqual:k1], @"Dictionary sorting failed");
+    XCTAssert([[q top] isEqual:k1], @"Dictionary sorting failed");
     [q pop];
 }
 
@@ -167,17 +168,17 @@
     MJPriorityDictionary *q = [MJPriorityDictionary dictionary];
     q[k2] = @2;
     q[k1] = @1;
-
-    STAssertTrue([[q top] isEqual:k2], @"Dictionary sorting failed");
+    
+    XCTAssert([[q top] isEqual:k2], @"Dictionary sorting failed");
     [q pop];
-
+    
     q[k3] = @3;
     
-    STAssertTrue([[q top] isEqual:k3], @"Dictionary sorting failed");
+    XCTAssert([[q top] isEqual:k3], @"Dictionary sorting failed");
     
     [q removeObjectForKey:k3];
     
-    STAssertTrue([[q top] isEqual:k1], @"Dictionary sorting failed");
+    XCTAssert([[q top] isEqual:k1], @"Dictionary sorting failed");
     [q pop];
 }
 
@@ -197,10 +198,10 @@
     NSString *key;
     for (int i = 0; (key = [q top]); ++i)
     {
-        STAssertTrue([q[key] isEqual:ordered[i]],
-                     @"Dictionary sorting failed for {%@: %d}. Value should be %d",
-                     key, [(NSNumber*)q[key] integerValue], [ordered[i] integerValue]);
-
+        XCTAssert([q[key] isEqual:ordered[i]],
+                     @"Dictionary sorting failed for {%@: %ld}. Value should be %ld",
+                     key, (long)[(NSNumber*)q[key] integerValue], (long)[ordered[i] integerValue]);
+        
         [q pop];
     }
 }
@@ -217,23 +218,23 @@
         q[keys[i]] = vals[i];
     }
     
-    int last = [keys count] - 3;
+    NSUInteger last = [keys count] - 3;
     for (int i = 0; i < last; ++i)
     {
         [q removeObjectForKey:keys[i]];
     }
     
     NSString *t = [q top];
-    STAssertTrue([[q top] isEqual:keys[last]], @"Dictionary sorting failed");
+    XCTAssert([[q top] isEqual:keys[last]], @"Dictionary sorting failed");
     
     for (int i = 0; i < [keys count]; ++i)
     {
         q[keys[i]] = vals[i];
     }
-
+    
     t = [q top];
-
-    STAssertTrue([[q top] isEqual:@"k12"], @"Dictionary sorting failed");
+    
+    XCTAssert([[q top] isEqual:@"k12"], @"Dictionary sorting failed");
     
 }
 
@@ -256,16 +257,16 @@
     NSString *end = @"v";
     
     NSArray *answer = @[@"s", @"x", @"u", @"v"];
-    NSArray *path = shortestPath(G, start, end);
-
-    STAssertTrue([answer count] == [path count], @"Wrong length of the found path.");
-
+    NSArray *path = MJShortestPath(G, start, end);
+    
+    XCTAssert([answer count] == [path count], @"Wrong length of the found path.");
+    
     if ([answer count] != [path count])
         return;
     
     for (int i = 0; i < [answer count]; ++i)
     {
-        STAssertTrue(answer[i] == path[i], @"Wrong vertex in the found path.");
+        XCTAssert(answer[i] == path[i], @"Wrong vertex in the found path.");
     }
 }
 
@@ -281,9 +282,9 @@
     NSString *end = @"v";
     
     //NSArray *answer = @[@"s", @"x", @"u", @"v"];
-    MJDijkstraSolution res = Dijkstra(G, start, end);
+    MJDijkstraSolution *res = MJDijkstra(G, start, end);
     
-    STAssertTrue([res.distances[end] integerValue] == 9, @"Wrong length of a found path.");
+    XCTAssert([res.distances[end] integerValue] == 9, @"Wrong length of a found path.");
 }
 
 -(void)testDijkstraSameLength
@@ -298,14 +299,15 @@
     NSString *end = @"v";
     
     //NSArray *answer = @[@"s", @"x", @"u", @"v"];
-    MJDijkstraSolution res = Dijkstra(G, start, end);
-    NSArray *path = shortestPath(G, start, end);
-
+    MJDijkstraSolution *res = MJDijkstra(G, start, end);
+    NSArray *path = MJShortestPath(G, start, end);
+    
     for (NSString *v in path)
         NSLog(@"Vertex %@", v);
     
-    NSLog(@"Path length: %d", [res.distances[end] integerValue]);
-    //STAssertTrue([res.distances[end] integerValue] == 9, @"Wrong length of a found path.");
+    NSLog(@"Path length: %lu", [res.distances[end] integerValue]);
+    //XCTAssert([res.distances[end] integerValue] == 9, @"Wrong length of a found path.");
 }
+
 
 @end

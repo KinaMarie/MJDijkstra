@@ -41,7 +41,6 @@ struct MJLessThan
 -(void)dealloc
 {
     [self clear];
-    [super dealloc];
 }
 
 -(void)clear
