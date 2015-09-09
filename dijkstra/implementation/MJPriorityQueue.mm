@@ -29,7 +29,7 @@ struct MJLessThan
 
 +(MJPriorityQueue*)queue
 {
-    return [[[MJPriorityQueue alloc] init] autorelease];
+    return [[MJPriorityQueue alloc] init];
 }
 
 -(id)init

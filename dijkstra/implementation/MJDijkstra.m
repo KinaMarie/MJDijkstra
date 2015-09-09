@@ -13,17 +13,21 @@
 #import "MJDijkstra.h"
 #import "MJPriorityDictionary.h"
 
+@implementation MJDijkstraSolution : NSObject
+
+@end
+
 //
 // Find shortest paths from the start vertex to all
 // vertices nearer than or equal to the end.
 //
-MJDijkstraSolution Dijkstra(NSDictionary *graph, id start, id end)
+MJDijkstraSolution *MJDijkstra(NSDictionary *graph, id start, id end)
 {
     
     NSMutableDictionary *dist = [NSMutableDictionary dictionary];	// dictionary of final distances
     NSMutableDictionary *pred = [NSMutableDictionary dictionary];	// dictionary of predecessors
     MJPriorityDictionary *prio = [MJPriorityDictionary dictionaryAscending:NO];// estimated dist. of non-final vert.
-    MJDijkstraSolution res = {};
+    MJDijkstraSolution *res = [MJDijkstraSolution new];
     
     prio[start] = @0;
     
@@ -66,13 +70,12 @@ MJDijkstraSolution Dijkstra(NSDictionary *graph, id start, id end)
 // The input has the same conventions as Dijkstra().
 // The output is a list of the vertices in order along
 // the shortest path.
-NSArray *shortestPath(NSDictionary *graph, id start, id end)
+NSArray *MJShortestPath(NSDictionary *graph, id start, id end)
 {
     NSMutableArray *path = [NSMutableArray array];
-    MJDijkstraSolution solution = Dijkstra(graph, start, end);
+    MJDijkstraSolution *solution = MJDijkstra(graph, start, end);
     id e = end;
-    while (true)
-    {
+    while (e) {
         [path addObject:e];
         if ([e isEqual:start])
             break;
@@ -83,6 +86,6 @@ NSArray *shortestPath(NSDictionary *graph, id start, id end)
     for (int i = 0; i < l-i; ++i)
         [path exchangeObjectAtIndex:i withObjectAtIndex:l-i];
 
-    return path;
+    return path.count > 1 ? path : nil;
 }
 

@@ -40,16 +40,16 @@
 // Since dictionaries obey iterator protocol, a graph
 // represented as described here could be handed without
 // modification to an algorithm using Guido's representation.
-// 
+//
 // Of course, G and G[v] need not be Objective C dictionary objects;
 // they can be any other object that obeys dictionary protocol (**),
 // for instance a wrapper in which vertices are URLs
 // and a call to G[v] loads the web page and finds its links.
-// 
+//
 // The output is a pair (D,P) where D[v] is the distance
 // from start to v and P[v] is the predecessor of v along
 // the shortest path from s to v.
-// 
+//
 // Dijkstra's algorithm is only guaranteed to work correctly
 // when all edge lengths are positive. This code does not
 // verify this property for all edges (only the edges seen
@@ -74,11 +74,12 @@
 // -(NSInteger *)objectForKeyedSubscript:(vertex_type)vertex;
 //
 
-typedef struct
-{
-    NSDictionary *distances;
-    NSDictionary *predecessors;
-} MJDijkstraSolution;
+@interface MJDijkstraSolution : NSObject
 
-MJDijkstraSolution Dijkstra(NSDictionary *G, id start, id end);
-NSArray *shortestPath(NSDictionary *G, id start, id end);
+@property (strong) NSDictionary *distances;
+@property (strong) NSDictionary *predecessors;
+
+@end
+
+MJDijkstraSolution *MJDijkstra(NSDictionary *G, id start, id end);
+NSArray *MJShortestPath(NSDictionary *G, id start, id end);
