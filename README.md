@@ -49,7 +49,9 @@ pod 'MJDijkstra', '~> 1.0.0'
 
 Download a zip of the repository and copy everything in `Classes` into your project. You can also clone the repo or add the repo as a submodule.
 
-    
+LICENSE
+=======
+
 ---
 This is free and unencumbered software released into the public domain.
 
