@@ -33,6 +33,23 @@ NSDictionary *G = @{@"s":@{@"u":@10, @"x":@5},
     MJDijkstraSolution res = Dijkstra(G, start, end);
     NSArray *path = shortestPath(G, start, end);
     
+
+Installation
+============
+
+## Cocoapods
+
+If you're using cocoapods, you can install MJDijkstra with the following:
+
+```ruby
+pod 'MJDijkstra', '~> 1.0.0'
+```
+
+## Manual
+
+Download a zip of the repository and copy everything in `Classes` into your project. You can also clone the repo or add the repo as a submodule.
+
+    
 ---
 This is free and unencumbered software released into the public domain.
 
