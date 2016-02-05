@@ -11,7 +11,6 @@
 		07186DB91BA0A8F300773E1D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 07186DB61BA0A8F300773E1D /* Default.png */; };
 		07186DBA1BA0A8F300773E1D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07186DB71BA0A8F300773E1D /* Default@2x.png */; };
 		07186DBE1BA0A8FD00773E1D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07186DBB1BA0A8FD00773E1D /* main.m */; };
-		07186DBF1BA0A8FD00773E1D /* MJDijkstra-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07186DBC1BA0A8FD00773E1D /* MJDijkstra-Info.plist */; };
 		07FD09201BA0A2E2005C38DD /* MJDijkstraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 07FD091F1BA0A2E2005C38DD /* MJDijkstraTests.m */; };
 		2A2B771E16D3577E00E7DA90 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A2B771D16D3577E00E7DA90 /* UIKit.framework */; };
 		2A2B772016D3577E00E7DA90 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A2B771F16D3577E00E7DA90 /* Foundation.framework */; };
@@ -209,7 +208,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = MJ;
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Dmitri Kozlov";
 				TargetAttributes = {
 					07FD091A1BA0A2E2005C38DD = {
@@ -251,7 +250,6 @@
 				07186DBA1BA0A8F300773E1D /* Default@2x.png in Resources */,
 				07186DB81BA0A8F300773E1D /* Default-568h@2x.png in Resources */,
 				07186DB91BA0A8F300773E1D /* Default.png in Resources */,
-				07186DBF1BA0A8FD00773E1D /* MJDijkstra-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +317,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "dijkstra.company.com.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MJDijkstra.app/MJDijkstra";
 			};
@@ -352,6 +351,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "dijkstra.company.com.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MJDijkstra.app/MJDijkstra";
 			};
@@ -371,6 +371,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -421,6 +422,7 @@
 				GCC_PREFIX_HEADER = "MJDijkstra/MJDijkstra-Prefix.pch";
 				INFOPLIST_FILE = "MJDijkstra/MJDijkstra-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "dijkstra.company.com.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = MJDijkstra;
 				WRAPPER_EXTENSION = app;
 			};
@@ -434,6 +436,7 @@
 				GCC_PREFIX_HEADER = "MJDijkstra/MJDijkstra-Prefix.pch";
 				INFOPLIST_FILE = "MJDijkstra/MJDijkstra-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "dijkstra.company.com.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = MJDijkstra;
 				WRAPPER_EXTENSION = app;
 			};
