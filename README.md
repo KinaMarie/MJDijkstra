@@ -37,7 +37,7 @@ NSDictionary *G = @{@"s":@{@"u":@10, @"x":@5},
 Installation
 ============
 
-## Cocoapods
+## CocoaPods
 
 If you're using cocoapods, you can install MJDijkstra with the following:
 
